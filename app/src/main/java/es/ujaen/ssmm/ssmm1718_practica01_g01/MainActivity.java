@@ -19,12 +19,6 @@ public class MainActivity extends AppCompatActivity {
     }
     //Mostrar fragment
     public void mostrarFragment(View v){
-
-
-
-
-
-
     }
     //Limpiar cajas de texto
     public void limpiarTexto(View v){
