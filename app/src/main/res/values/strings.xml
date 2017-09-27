@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ssmm1718_practica01_G01</string>
+    <string name="titule">Práctica 01.</string>
+    <string name="subtitule">Introducción al desarrollo de servicios y aplicaciones móviles con Android.</string>
+    <string name="textButton">Loggin</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="descripcion">Hola mundo</string>
+    <string name="textName">Nombre:</string>
+    <string name="textPass">Pwd:</string>
+    <string name="textDireccio">Direccion:</string>
+    <string name="textPuerto">Puerto:</string>
+    <string name="textButtonOkLoggin">Ok</string>
+    <string name="textButtonClearLogin">Limpiar</string>
+    <string name="textButtonCancelLogin">Cancelar</string>
 </resources>
