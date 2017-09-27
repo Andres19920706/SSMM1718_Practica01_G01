@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 /**
@@ -70,7 +73,19 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        View fragment = inflater.inflate(R.layout.fragment_login, container, false);
+        Button conect =  (Button) fragment.findViewById(R.id.button_fragment_login_enviar); //Castin porque lo que delvuelve conect es un objet generico
+
+        final EditText name = (EditText) fragment.findViewById(R.id.editText_login_user);
+
+        conect.setOnClickListener(new View.OnClickListener(){
+          //Lo que hacemos cuando se ulse
+            String nombre = name.getText().toString();//Extraemos lo que hay dentro del
+            //getContext donde se muestra.
+            Toast.makeText(getContext(),"Hola"+nombre, Toast.LENGTH_LONG).show(); //Método estatico que permite mostrar mensajes en pantalla
+
+        }); //Establecemos un evento a la pulsacion
+        return fragment;
     }
 
 }
