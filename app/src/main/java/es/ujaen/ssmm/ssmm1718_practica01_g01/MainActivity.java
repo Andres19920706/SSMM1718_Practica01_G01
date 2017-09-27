@@ -1,21 +1,17 @@
 package es.ujaen.ssmm.ssmm1718_practica01_g01;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.app.FragmentManager;
-import es.ujaen.ssmm.ssmm1718_practica01_g01.FLogin;
 
 
 public class MainActivity extends AppCompatActivity {
 
     EditText name,pwd,dir,port;
     Button button1;
-    FLogin mi;
+    LoginFragment mi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     }
     //Mostrar fragment
     public void mostrarFragment(View v){
+
+
+
 
 
 

@@ -74,15 +74,18 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View fragment = inflater.inflate(R.layout.fragment_login, container, false);
-        Button conect =  (Button) fragment.findViewById(R.id.button_fragment_login_enviar); //Castin porque lo que delvuelve conect es un objet generico
+        Button conect =  (Button) fragment.findViewById(R.id.buttonOkLoggin); //Castin porque lo que delvuelve conect es un objet generico
 
-        final EditText name = (EditText) fragment.findViewById(R.id.editText_login_user);
+        final EditText name = (EditText) fragment.findViewById(R.id.inputName);
 
         conect.setOnClickListener(new View.OnClickListener(){
-          //Lo que hacemos cuando se ulse
-            String nombre = name.getText().toString();//Extraemos lo que hay dentro del
-            //getContext donde se muestra.
-            Toast.makeText(getContext(),"Hola"+nombre, Toast.LENGTH_LONG).show(); //Método estatico que permite mostrar mensajes en pantalla
+            public void onClick(View v){
+                //Lo que hacemos cuando se ulse
+                String nombre = name.getText().toString();//Extraemos lo que hay dentro del
+                //getContext donde se muestra.
+                Toast.makeText(getContext(),"Hola"+nombre, Toast.LENGTH_LONG).show(); //Método estatico que permite mostrar mensajes en pantalla
+            }
+
 
         }); //Establecemos un evento a la pulsacion
         return fragment;

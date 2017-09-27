@@ -13,4 +13,7 @@
     <string name="textButtonOkLoggin">Ok</string>
     <string name="textButtonClearLogin">Limpiar</string>
     <string name="textButtonCancelLogin">Cancelar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
