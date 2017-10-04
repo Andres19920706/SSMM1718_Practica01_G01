@@ -1,6 +1,6 @@
 package es.ujaen.ssmm.ssmm1718_practica01_g01;
 
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import es.ujaen.ssmm.ssmm1718_practica01_g01.packageUsuario.ConnectionUserData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,17 +74,47 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View fragment = inflater.inflate(R.layout.fragment_login, container, false);
+        View fragment = inflater.inflate(R.layout.fragment_login, container, false); //ESTO PUEDE GENERAR UNA EXCEPCION
+        //Obtene
         Button conect =  (Button) fragment.findViewById(R.id.buttonOkLoggin); //Castin porque lo que delvuelve conect es un objet generico
 
         final EditText name = (EditText) fragment.findViewById(R.id.inputName);
+        final EditText pass = (EditText) fragment.findViewById(R.id.inputPwd);
+        final EditText dir = (EditText) fragment.findViewById(R.id.inputDireccion);
+        final EditText puerto = (EditText) fragment.findViewById(R.id.inputPuerto);
 
+        //Evento de pulsación del boton "conectar"
         conect.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 //Lo que hacemos cuando se ulse
-                String nombre = name.getText().toString();//Extraemos lo que hay dentro del
-                //getContext donde se muestra.
-                Toast.makeText(getContext(),"Hola"+nombre, Toast.LENGTH_LONG).show(); //Método estatico que permite mostrar mensajes en pantalla
+                String user = name.getText().toString();//Extraemos lo que hay dentro del getContext donde se muestra.
+                String pwd  = pass.getText().toString();
+                String ip = dir.getText().toString();
+                short port;
+                try{
+                     port = Short.parseShort(puerto.getText().toString());
+                }catch(java.lang.NumberFormatException io){
+                    port = 6000; //Por por defecto
+                }
+
+                //Guardamos
+                ConnectionUserData data = new ConnectionUserData(user,pwd,ip,port);
+
+                //Mensaje al usuario
+                Toast.makeText(getContext(),"Hola"+user+" "+pwd+" "+ip+" ("+port+")", Toast.LENGTH_LONG).show(); //Método estatico que permite mostrar mensajes en pantalla
+
+                //Llamamos a una actividad meidante un intent (intencón)
+                Intent nueva = new Intent(getActivity(),ServiceActivity.class);//El contexto desde donde llamo y la actividad que queiro
+
+                //Pasamso los datos antes de iniciar l
+                nueva.putExtra(ServiceActivity.PARAM_USER,data.getUser()); //ETIQUETA, DATA
+                nueva.putExtra("param_pwd",data.getPwd()); //ETIQUETA, DATA
+                nueva.putExtra("param_ip",data.getConnectionIP()); //ETIQUETA, DATA
+                nueva.putExtra("param_port",data.getConnectionPort()); //ETIQUETA, DATA
+
+                //agrego la actividad
+                startActivity(nueva); //Pone en segundo plano la MainActivity y muestra la neuva actividad.
+
             }
 
 

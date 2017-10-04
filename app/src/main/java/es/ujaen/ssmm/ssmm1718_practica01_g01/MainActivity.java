@@ -1,5 +1,6 @@
 package es.ujaen.ssmm.ssmm1718_practica01_g01;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,10 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    //comentario para comit
-    //Mostrar fragment
-    public void mostrarFragment(View v){
-    }
+
     //Limpiar cajas de texto
     public void limpiarTexto(View v){
         /*
@@ -44,4 +42,16 @@ public class MainActivity extends AppCompatActivity {
         port.setText("");
 
     }
+
+    //Salir de la app
+    public void salir(View v){
+        //https://www.youtube.com/watch?v=-Qy3sQt5McQ
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    //Conecptos
+    //Diseño alternativo -> permite ajustar a las direfentes pantallas.
 }

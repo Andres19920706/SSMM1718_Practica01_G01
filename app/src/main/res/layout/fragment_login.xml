@@ -116,7 +116,7 @@
             android:layout_alignStart="@+id/inputDireccion"
             android:digits="1234567890"
             android:ems="10"
-            android:inputType="phone"
+            android:inputType="number"
             android:maxLength="4" />
 
         <Button
@@ -150,6 +150,7 @@
             android:layout_alignEnd="@+id/inputPuerto"
             android:layout_alignRight="@+id/inputPuerto"
             android:layout_alignTop="@+id/buttonClearLoggin"
+            android:onClick="salir"
             android:text="@string/textButtonCancelLogin" />
 
     </RelativeLayout>

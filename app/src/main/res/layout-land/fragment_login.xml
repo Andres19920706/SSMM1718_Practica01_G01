@@ -1,0 +1,179 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="es.ujaen.ssmm.ssmm1718_practica01_g01.LoginFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/labelName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/inputName"
+                android:layout_alignBottom="@+id/inputName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
+                android:layout_weight="0.07"
+                android:text="@string/textName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <EditText
+                android:id="@+id/inputName"
+                style="@android:style/Widget.EditText"
+                android:layout_width="121dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="28dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="22dp"
+                android:layout_toRightOf="@+id/lebelDireccion"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/labelPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/labelName"
+                android:layout_alignStart="@+id/labelName"
+                android:layout_below="@+id/inputName"
+                android:layout_marginTop="37dp"
+                android:layout_weight="0.07"
+                android:text="@string/textPass"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <EditText
+                android:id="@+id/inputPwd"
+                style="@android:style/Widget.EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/inputName"
+                android:layout_alignStart="@+id/inputName"
+                android:layout_below="@+id/inputName"
+                android:layout_marginTop="24dp"
+                android:layout_weight="0.07"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/labelPort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/lebelDireccion"
+                android:layout_alignStart="@+id/lebelDireccion"
+                android:layout_below="@+id/inputDireccion"
+                android:layout_marginTop="35dp"
+
+                android:text="@string/textPuerto"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <EditText
+                android:id="@+id/inputPuerto"
+                style="@android:style/Widget.EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/labelPort"
+                android:layout_alignBottom="@+id/labelPort"
+                android:layout_alignLeft="@+id/inputDireccion"
+                android:layout_alignStart="@+id/inputDireccion"
+
+                android:digits="1234567890"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="4" />
+
+            <TextView
+                android:id="@+id/lebelDireccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/inputDireccion"
+                android:layout_alignBottom="@+id/inputDireccion"
+                android:layout_alignLeft="@+id/textView6"
+                android:layout_alignStart="@+id/textView6"
+                android:layout_weight="1"
+                android:text="@string/textDireccio"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <EditText
+                android:id="@+id/inputDireccion"
+                style="@android:style/Widget.EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/inputPwd"
+                android:layout_alignStart="@+id/inputPwd"
+                android:layout_below="@+id/inputPwd"
+                android:layout_marginTop="32dp"
+
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonOkLoggin"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/labelPort"
+                android:layout_alignStart="@+id/labelPort"
+                android:layout_below="@+id/inputPuerto"
+                android:layout_marginTop="160dp"
+
+                android:text="@string/textButtonOkLoggin" />
+
+            <Button
+                android:id="@+id/buttonCancelLogin"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/inputPuerto"
+                android:layout_alignRight="@+id/inputPuerto"
+                android:layout_alignTop="@+id/buttonClearLoggin"
+                android:layout_marginTop="160dp"
+
+                android:onClick="salir"
+                android:text="@string/textButtonCancelLogin" />
+
+            <Button
+                android:id="@+id/buttonClearLoggin"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/buttonOkLoggin"
+                android:layout_alignBottom="@+id/buttonOkLoggin"
+                android:layout_alignLeft="@+id/inputPuerto"
+                android:layout_alignStart="@+id/inputPuerto"
+                android:onClick="limpiarTexto"
+                android:text="@string/textButtonClearLogin"
+                android:layout_marginTop="160dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

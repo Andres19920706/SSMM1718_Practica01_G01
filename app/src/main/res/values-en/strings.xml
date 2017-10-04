@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ssmm1718_practica01_G01</string>
+    <string name="descripcion">Hello mund</string>
+    <string name="textPuerto">Port</string>
+</resources>
