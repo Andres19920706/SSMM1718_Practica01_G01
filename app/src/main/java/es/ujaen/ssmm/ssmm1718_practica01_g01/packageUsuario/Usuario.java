@@ -7,19 +7,16 @@ package es.ujaen.ssmm.ssmm1718_practica01_g01.packageUsuario;
 public class Usuario {
     //Atributos
 
-    protected String name="";
-    protected String surname="";
-
     protected String user="";
     protected String pwd="";
-    protected int port;
+
     //Constructores
     public Usuario(){
         //Constructor obligatorio, al utilizar herencia
     }
     //Construcutro que inicializa el usuario y la clave
     public Usuario (String user, String pwd){
-        this.name = name;
+        this.user = user;
         this.pwd = pwd;
     }
 
@@ -36,7 +33,5 @@ public class Usuario {
     public void setPwd(String pwd){
         this.pwd = pwd;
     }
-    public void setDir(String user){ this.user = user;   }
-
-
+    public void setUser(String user){ this.user = user;}
 }

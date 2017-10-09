@@ -20,8 +20,8 @@ import es.ujaen.ssmm.ssmm1718_practica01_g01.packageUsuario.ConnectionUserData;
 public class LoginFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM1 = "param_ip";
+    private static final String ARG_PARAM2 = "param_port";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -75,7 +75,8 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View fragment = inflater.inflate(R.layout.fragment_login, container, false); //ESTO PUEDE GENERAR UNA EXCEPCION
-        //Obtene
+
+        //Obtenemos los datos introducios por el usuario
         Button conect =  (Button) fragment.findViewById(R.id.buttonOkLoggin); //Castin porque lo que delvuelve conect es un objet generico
 
         final EditText name = (EditText) fragment.findViewById(R.id.inputName);
@@ -92,7 +93,7 @@ public class LoginFragment extends Fragment {
                 String ip = dir.getText().toString();
                 short port;
                 try{
-                     port = Short.parseShort(puerto.getText().toString());
+                    port = Short.parseShort(puerto.getText().toString());
                 }catch(java.lang.NumberFormatException io){
                     port = 6000; //Por por defecto
                 }
@@ -101,7 +102,7 @@ public class LoginFragment extends Fragment {
                 ConnectionUserData data = new ConnectionUserData(user,pwd,ip,port);
 
                 //Mensaje al usuario
-                Toast.makeText(getContext(),"Hola"+user+" "+pwd+" "+ip+" ("+port+")", Toast.LENGTH_LONG).show(); //Método estatico que permite mostrar mensajes en pantalla
+                Toast.makeText(getContext(),"Hola "+user+" "+pwd+" "+ip+" ("+port+")", Toast.LENGTH_LONG).show(); //Método estatico que permite mostrar mensajes en pantalla
 
                 //Llamamos a una actividad meidante un intent (intencón)
                 Intent nueva = new Intent(getActivity(),ServiceActivity.class);//El contexto desde donde llamo y la actividad que queiro

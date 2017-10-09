@@ -9,6 +9,8 @@ public class ServiceActivity extends AppCompatActivity {
     //Constante
     public static final String PARAM_USER ="param_user"; //Viene bien para usarla
     public static final String PARAM_PORT ="param_port";
+    public static final String PARAM_IP = "param_ip";
+    public static final String PARAM_PASS = "param_port";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +19,17 @@ public class ServiceActivity extends AppCompatActivity {
 
         //Extremos los datos que le pasamos
         String user = getIntent().getStringExtra(PARAM_USER);
+        String pass = getIntent().getStringExtra(PARAM_PASS);
+        String ip = getIntent().getStringExtra(PARAM_IP);
+        short port = getIntent().getShortExtra(PARAM_PORT,(short)6000);
+
         //short port = getIntent().getShortExtra(PARAM_PORT,(short)600);
-        Toast.makeText(this,"Hola "+user,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Hola  "+user,Toast.LENGTH_SHORT).show();
 
         //faltaq instancia una clase
 
         //Mostramos en un textview
         TextView title = (TextView) findViewById(R.id.textView);
-        title.setText("Hola "+user);
+        title.setText("Hola "+ user);
     }
 }
