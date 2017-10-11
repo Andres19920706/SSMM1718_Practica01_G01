@@ -1,6 +1,7 @@
 package es.ujaen.ssmm.ssmm1718_practica01_g01;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -104,6 +105,7 @@ public class LoginFragment extends Fragment {
                 //Mensaje al usuario
                 Toast.makeText(getContext(),"Hola "+user+" "+pwd+" "+ip+" ("+port+")", Toast.LENGTH_LONG).show(); //Método estatico que permite mostrar mensajes en pantalla
 
+                /* Esto se pone en el resutlado de la tarea (para pracitca 2) para que solo se inicie cuando se la autenticacion sea correcta
                 //Llamamos a una actividad meidante un intent (intencón)
                 Intent nueva = new Intent(getActivity(),ServiceActivity.class);//El contexto desde donde llamo y la actividad que queiro
 
@@ -115,6 +117,11 @@ public class LoginFragment extends Fragment {
 
                 //agrego la actividad
                 startActivity(nueva); //Pone en segundo plano la MainActivity y muestra la neuva actividad.
+                */
+
+                //Llamamos la tarea
+                TareaAutentica tareaAutentica = new TareaAutentica();
+                tareaAutentica.execute(data); //Ejecutamos la tarea, le pasamso los datos que hemos leido
 
             }
 
@@ -123,4 +130,51 @@ public class LoginFragment extends Fragment {
         return fragment;
     }
 
+    //Tareas sincronas. (Tarea 5 practica 2
+    //Hereda <Clase de los tipos de datos de entrada,Clasescontador de evento(por defecto clase Void) o Integer,Clase del resultado de proceso>
+    public class TareaAutentica extends AsyncTask<ConnectionUserData,Void,String> {
+
+        private ConnectionUserData data;
+
+        //Extraemos los datos
+        //¿Que segnifica los tres puntos? Que param puede ser uno o varios valores, como un array(esto es de JAVA)
+        public String doInBackground(ConnectionUserData... param){ //Se ejecuta cuando se inica la activdad
+            //Aqui podemos establecer comunicaciones, contadores, cargar ficheros, en pararelo a la actividad principal.
+            if(param!=null){
+                if(param.length>=1){
+                    data = param[0]; //Salvamos los datos que le pasamos.
+                }
+            }
+            //TODO proeceso de autenticacion
+            //Login del profesor: http://www4.ujaen.es/~jccuevas/ssmm/login.html
+            return "OK"; //Autentica correcta
+        }
+
+        /**
+         * Nota : Tras termianr de ejecutar doInBackground, de fomra autoamitca se inicia onPostExecute
+         * Si recibe un ok
+         * @param result Ok si la operacion fue correcta y si no otro valor
+         */
+        public void onPostExecute(String result){
+            if(result.compareToIgnoreCase("OK")==0){
+                //Llamamos a una actividad meidante un intent (intencón)
+                Intent nueva = new Intent(getActivity(),ServiceActivity.class);//El contexto desde donde llamo y la actividad que queiro
+
+                //Pasamso los datos antes de iniciar l
+                nueva.putExtra(ServiceActivity.PARAM_USER,data.getUser()); //ETIQUETA, DATA
+                nueva.putExtra("param_pwd",data.getPwd()); //ETIQUETA, DATA
+                nueva.putExtra("param_ip",data.getConnectionIP()); //ETIQUETA, DATA
+                nueva.putExtra("param_port",data.getConnectionPort()); //ETIQUETA, DATA
+
+                //agrego la actividad
+                startActivity(nueva); //Pone en segundo plano la MainActivity y muestra la neuva actividad.
+            }else{
+
+                Toast.makeText(getContext(),"Error en la autenticaicon", Toast.LENGTH_LONG).show();
+            }
+
+
+
+        }
+    }
 }
